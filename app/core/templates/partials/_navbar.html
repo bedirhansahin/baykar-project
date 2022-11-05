@@ -1,0 +1,53 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link mx-2" href="{% url 'core:products' %}">IHA Listesi <span class="sr-only">(current)</span></a>
+      </li>
+      {% if not request.user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'core:login' %}">IHA Kayıt <span class="sr-only">(current)</span></a>
+      </li>
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'core:create-product' %}">IHA Kayıt <span class="sr-only">(current)</span></a>
+      </li>
+      {% endif %}
+      <li>
+        <form class="form-inline d-flex mx-5" method="GET">
+          <input class="form-control" type="text" name="search" placeholder="Ürün İsmi" aria-label="Search" />
+          <button class="btn btn-secondary mx-2" type="submit">
+            Search
+          </button>
+      </li>
+      {% if not request.user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" style="margin-left:750px;" href="{% url 'core:register' %}">Kayıt Ol <span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="margin-left:0px;" href="{% url 'core:login' %}">Giriş <span
+            class="sr-only">(current)</span></a>
+      </li>
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" style="margin-left:700px" href="{% url 'core:edit-user' user.pk %}">{{ user.name.upper }}
+        <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="" href="{% url 'core:logout' %}">Çıkış
+        <span class="sr-only">(current)</span></a>
+      </li>
+      {% endif %}
+
+    </ul>
+
+    </form>
+  </div>
+</nav>

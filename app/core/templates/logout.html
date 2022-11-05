@@ -1,0 +1,15 @@
+{% extends "partials/_base.html" %} {% load widget_tweaks %} {% block content %}
+
+{% if request.user.is_authenticated %}
+    <div class="text-center my-5">
+        <form method='POST'>{% csrf_token %}
+            <p>Çıkmak istediğinizden emin misiniz?</p>
+            <button type='submit' class='btn btn-danger '>Evet</button>
+        </form>
+    </div>
+{% else %}
+<p class="mx-5 my-3">Henüz giriş yapmadınız <a href='/login/'>Giriş</a></p>
+{% endif %}
+
+
+{% endblock content %}

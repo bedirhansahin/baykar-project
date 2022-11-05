@@ -1,0 +1,29 @@
+{% extends "partials/_base.html" %} {% load widget_tweaks %} {% block content %}
+
+<div class="container pt-5">
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field|add_class:"form-control" }} {% for error in field.errors %}
+      <span class="help-block">{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {% if not request.user.is_authenticated %}
+      <div class="form-group">
+        <p>Düzenlemek için <a href="{% url 'core:login' %}">Giriş</a> Yapmanız Lazım.</p>
+    </div>
+    {% else %}
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">
+          <span class="glyphicon glyphicon-ok">Güncelle</span>
+        </button>
+    </div>
+    {% endif %}
+
+  </form>
+</div>
+
+{% endblock content %}

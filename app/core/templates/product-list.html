@@ -1,0 +1,60 @@
+{% extends "partials/_base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <h1 class="text-center">BAYKAR</h1>
+  {% if products %}
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Ürün İsmi</th>
+        <th scope="col">Üretici Firma</th>
+        <th scope="col">Üretim Tarihi</th>
+        <th scope="col">Ağırlığı</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    {% for product in products %}
+       <tbody>
+      <tr>
+          {% if not request.user.is_authenticated %}
+        <td><a href="{% url 'core:login' %}" class="text-decoration-none text-info">{{product.name}}</a></td>
+        {% else %}
+        <td><a href="no/{{ product.pk }}" class="text-decoration-none text-info">{{product.name}}</a></td>
+        {% endif %}
+        <td>{{product.producer}}</td>
+        <td>{{product.date_of_production}}</td>
+        <td>{{product.weight}} kg</td>
+          {% if not request.user.is_authenticated %}
+        <td><a href="{% url 'core:login' %}" class="btn btn-primary">Düzenle</a></td>
+        <td><a href="{% url 'core:login' %}" class="btn btn-danger">Sil</a></td>
+          {% else %}
+        <td><a href="{% url 'core:edit-product' product.pk %}" class="btn btn-primary">Düzenle</a></td>
+        <td><a href="{% url 'core:delete-product' product.pk %}" class="btn btn-danger">Sil</a></td>
+        {% endif %}
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <div class="pagination ml-auto">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="text-decoration-none">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="text-decoration-none">previous</a>
+        {% endif %}
+
+        <span class="current">
+          {{ page_obj.paginator.num_pages }} sayfadan {{ page_obj.number }} gösteriliyor.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="text-decoration-none">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="text-decoration-none">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "partials/_base.html" %} {% load widget_tweaks %} {% block content %}
+
+<div class="container pt-5">
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <p>{{ object }} öğesini silmek istediğinize emin misiniz?</p>
+    <input type="submit" value="Eminim" class="btn btn-danger">
+  </form>
+</div>
+
+{% endblock content %}

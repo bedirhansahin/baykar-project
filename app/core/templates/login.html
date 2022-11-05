@@ -1,0 +1,16 @@
+{% extends "partials/_base.html" %} {% load widget_tweaks %} {% block content %}
+
+{% if not request.user.is_authenticated %}
+    <div class='container text-center my-5'>
+        <form method='POST' enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <button type='submit' class="btn btn-primary">Giriş</button>
+        </form>
+
+        <p>Henüz bir hesabınız yok mu? <a href='/register'>Kayıt ol</a></p>
+    </div>
+{% else %}
+<p class="mx-5 my-3">Zaten giriş yaptınız çıkmak için <a href='/logout/'>tıklayınız</a> </p>
+{% endif %}
+
+{% endblock content %}
