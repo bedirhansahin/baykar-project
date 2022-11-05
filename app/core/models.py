@@ -57,7 +57,7 @@ class Type(models.Model):
 class Products(models.Model):
     producer = models.CharField(max_length=150)
     name = models.CharField(max_length=255)
-    type = models.ForeignKey(Type, on_delete=models.DO_NOTHING)
+    type = models.ForeignKey(Type, on_delete=models.DO_NOTHING, null=True, blank=True)
     description = models.TextField()
     date_of_production = models.DateField()
     weight = models.IntegerField(null=True, blank=True)

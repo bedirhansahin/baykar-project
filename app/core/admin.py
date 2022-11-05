@@ -10,7 +10,7 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    prepopulated_fields={'slug':('name',)}
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Products)

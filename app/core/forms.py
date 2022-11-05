@@ -17,7 +17,8 @@ class ProductForm(forms.ModelForm):
             "image",
         ]
         widgets = {
-            'date_of_production': forms.TextInput(attrs={'placeholder': 'YYYY-DD-MM'})
+            'date_of_production': forms.TextInput(
+                attrs={'placeholder': 'YYYY-DD-MM'})
         }
 
 
@@ -37,7 +38,8 @@ class UserLoginForm(AuthenticationForm):
         model = User
         fields = ['email', 'password']
         widgets = {
-            'email': forms.TextInput(attrs={'placeholder': 'example@example.com'}),
-            'password': forms.TextInput(attrs={'placeholder': 'Password'})
+            'email': forms.TextInput(
+                attrs={'placeholder': 'example@example.com'}),
+            'password': forms.TextInput(
+                attrs={'placeholder': 'Password'})
         }
-

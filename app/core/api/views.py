@@ -1,12 +1,11 @@
 from rest_framework import generics, permissions
-from rest_framework.exceptions import ValidationError
-from rest_framework.generics import get_object_or_404
 
-from core.api.serializers import ProductsSerializer, UserSerializer, UserCreateSerializer
-from core.api.permissions import IsAdminUserOrReadOnly
+from core.api.serializers import (
+    ProductsSerializer,
+    UserSerializer,
+    UserCreateSerializer)
 
-from core.models import Products, Type, User
-
+from core.models import Products, User
 
 
 class ProductsListCreateAPIView(generics.ListCreateAPIView):

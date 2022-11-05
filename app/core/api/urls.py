@@ -2,7 +2,7 @@ from django.urls import path
 
 from core.api import views as api_views
 
-urlpatterns=[
+urlpatterns = [
     path('user-create/', api_views.UserCreateAPIView.as_view(), name='api-create-user'),
     path('user-list/', api_views.UserListAPIView.as_view(), name='api-users'),
     path('user/<int:pk>', api_views.UserDetailAPIView.as_view(), name='api-user-detail'),

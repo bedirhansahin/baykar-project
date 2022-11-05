@@ -1,14 +1,14 @@
-from urllib import request
-
 from rest_framework import permissions
 
+
 SAFE_METHODS = ('GET', 'HEAD', 'OPTIONS')
+
 
 class IsAdminUserOrReadOnly(permissions.IsAdminUser):
 
     def has_permission(self, request, view):
         is_admin = super().has_permission(request, view)
-        return request.method in SAFE_METHODS or is_admin ## if user is not SAFE_METHODS, look if user is_admin
+        return request.method in SAFE_METHODS or is_admin  # if user is not SAFE_METHODS, look if user is_admin
 
 
 class IsCommenterOrReadOnly():
@@ -17,4 +17,5 @@ class IsCommenterOrReadOnly():
             return True
         elif request.user == obj.user:
             return True
-        else: False    
+        else:
+            False

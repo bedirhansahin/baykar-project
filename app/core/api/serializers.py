@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from core.models import Products, User, Type
+from core.models import Products, User
 
 
 class ProductsSerializer(ModelSerializer):
@@ -14,7 +14,7 @@ class UserSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ['groups', 'user_permissions', 'password',]
+        exclude = ['groups', 'user_permissions', 'password']
 
 
 class UserCreateSerializer(ModelSerializer):
@@ -22,5 +22,3 @@ class UserCreateSerializer(ModelSerializer):
     class Meta:
         model = User
         exclude = ['is_superuser', 'is_staff', 'groups', 'user_permissions', 'is_active']
-
-

@@ -9,12 +9,10 @@ from . views import (
     UserEditView,
     login_view,
     logout_view
-    )
-from django.conf import settings
-from django.conf.urls.static import static
+)
 
+app_name = 'core'
 
-app_name='core'
 urlpatterns = [
     path('', ProductListView.as_view(), name='products'),
     path('posts/', CreateProductView.as_view(), name='create-product'),

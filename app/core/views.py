@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from django.views.generic import (
-    View,
     ListView,
     CreateView,
     DetailView,
@@ -10,8 +9,7 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.messages import constants as messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
 from . forms import UserRegisterForm
@@ -25,7 +23,7 @@ def error_404_view(request, exception):
 class RegisterView(SuccessMessageMixin, CreateView):
     model = User
     template_name = 'register.html'
-    success_url = reverse_lazy('core:register')
+    success_url = reverse_lazy('core:login')
     form_class = UserRegisterForm
     success_message = "Your profile was created successfully"
 
@@ -57,7 +55,6 @@ def logout_view(request):
     return render(request, "logout.html", {})
 
 
-
 class ProductListView(ListView):
     model = Products
     template_name = 'product-list.html'
@@ -82,15 +79,17 @@ class CreateProductView(CreateView):
     model = Products
     template_name = 'create-product.html'
     fields = [
-            "producer",
-            "name",
-            "type",
-            "description",
-            "date_of_production",
-            "weight",
-            "image",
-        ]
+        "producer",
+        "name",
+        "type",
+        "description",
+        "date_of_production",
+        "weight",
+        "image"
+    ]
+
     def get_success_url(self):
+
         return reverse_lazy('core:single-product', kwargs={'pk': self.object.pk})
 
 
