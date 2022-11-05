@@ -20,6 +20,7 @@ def error_404_view(request, exception):
     return render(request, '404.html')
 
 
+# Class based views to register to site
 class RegisterView(SuccessMessageMixin, CreateView):
     model = User
     template_name = 'register.html'

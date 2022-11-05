@@ -7,12 +7,14 @@
 
 - Django
 - Docker
+- Github Action
 - PostgreSQL
 - Django Rest Framework
 - Django Rest Framework Permissions
 - Django Class Based Views
 - Django Model Form
 - Django Pagination
+- Bootstrap
 
 
 ## You can:

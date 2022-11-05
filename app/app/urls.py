@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    path('admin/', admin.site.urls),
-    path('', include('core.urls', namespace='core')),
-    path('api/', include('core.api.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    path('admin/', admin.site.urls),  # Admin Site
+    path('', include('core.urls', namespace='core')),  # HTML Site
+    path('api/', include('core.api.urls')),  # Rest API Site
+    path('api-auth/', include('rest_framework.urls')),  # Authentication for API pages
 ]
 
 if settings.DEBUG:

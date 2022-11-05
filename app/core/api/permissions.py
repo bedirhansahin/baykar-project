@@ -1,3 +1,4 @@
+# Permissions configure for the serializers
 from rest_framework import permissions
 
 

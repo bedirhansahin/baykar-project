@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from . models import User
 
 
+# Model form codes for the create or update a UAV
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Products
@@ -22,6 +23,7 @@ class ProductForm(forms.ModelForm):
         }
 
 
+# Model Form codes to register
 class UserRegisterForm(UserCreationForm):
   email = forms.EmailField()
 
@@ -33,6 +35,7 @@ class UserRegisterForm(UserCreationForm):
       }
 
 
+# Model Form codes to login
 class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User

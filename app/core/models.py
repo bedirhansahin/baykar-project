@@ -29,6 +29,7 @@ class UserManager(BaseUserManager):
         return user
 
 
+# User model
 class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
     email = models.EmailField(max_length=255, unique=True)
@@ -42,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
 
+# UAV type model
 class Type(models.Model):
     name = models.CharField(max_length=100, null=True)
     slug = models.SlugField(max_length=100, unique=True, null=True)
@@ -54,6 +56,7 @@ class Type(models.Model):
         return self.name
 
 
+# UAV Model
 class Products(models.Model):
     producer = models.CharField(max_length=150)
     name = models.CharField(max_length=255)
