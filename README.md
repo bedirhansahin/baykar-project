@@ -52,5 +52,5 @@ docker-compose up
 
 and you can go to [http://127.0.0.1:8090/](http://127.0.0.1:8090/) on your own browser.
 
-:warning: **create a superuser with command (docker-compose run --rm app sh -c "python manage.py createsuperuser")**:
-:warning: **create new types like 'İnsansız Hava Aracı', 'Silahlı İnsansız Hava Aracı' on [http://127.0.0.1:8090/admin](http://127.0.0.1:8090/admin) after logging in**:
+:warning: **create a superuser with command (docker-compose run --rm app sh -c "python manage.py createsuperuser")**
+:warning: **create new types like 'İnsansız Hava Aracı', 'Silahlı İnsansız Hava Aracı' on [http://127.0.0.1:8090/admin](http://127.0.0.1:8090/admin) after logging in**
