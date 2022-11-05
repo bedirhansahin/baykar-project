@@ -48,6 +48,8 @@ Ardından aşağıdaki komutları sırasıyla çalıştırın
 docker build .
 docker-compose build .
 docker-compose run --rm app sh -c "python manage.py wait_for_db"
+docker-compose run --rm app sh -c "python manage.py makemigrations core"
+docker-compose run --rm app sh -c "python manage.py migrate"
 docker-compose run --rm app sh -c "python manage.py createsuperuser"
 docker-compose up
 ```
