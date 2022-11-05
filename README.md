@@ -24,13 +24,12 @@
 - Update, Delete and List UAVs
 - Search for UAV you want
 - Visit some endpoint
-    (
-        /api/user-list/     ==> to see all users
-        /api/user/id/       ==> to see user you want
-        /api/user-create/   ==> to create a new user
-        /api/product-list/  ==> to see all UAVs
-        /api/product/id/    ==> to see UAV you want
-    )
+
+    - /api/user-list/     ==> to see all users
+    - /api/user/id/       ==> to see user you want
+    - /api/user-create/   ==> to create a new user
+    - /api/product-list/  ==> to see all UAVs
+    - /api/product/id/    ==> to see UAV you want
 
 
 ## Download the project
@@ -54,4 +53,4 @@ docker-compose up
 and you can go to [http://127.0.0.1:8090/](http://127.0.0.1:8090/) on your own browser.
 
 :warning: **create a superuser with command (docker-compose run --rm app sh -c "python manage.py createsuperuser")**:
-:warning: **create new types like 'İnsansız Hava Aracı', 'Silahlı İnsansız Hava Aracı' on [http://127.0.0.1:8090/](http://127.0.0.1:8090/) after logging in**:
+:warning: **create new types like 'İnsansız Hava Aracı', 'Silahlı İnsansız Hava Aracı' on [http://127.0.0.1:8090/](http://127.0.0.1:8090/admin) after logging in**:
